@@ -84,7 +84,19 @@ if __name__ == "__main__":
     for user in admin1.users_list:
         print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
 
+    # Администратор 2 добавляет сотрудников
+    print(admin2.add_user(user4))
+    print(admin2.add_user(user5))
+    print(admin2.add_user(user6))
 
+    # Пытаемся добавить администратора как обычного сотрудника
+    print(admin2.add_user(admin2))  # Должно вернуть ошибку
+
+    # Администратор 2 удаляет сотрудника
+    print(admin2.remove_user(105))
+
+    # Администратор 2 редактирует сотрудника
+    print(admin2.edit_user(106, "User 006 Renamed"))
 
     # Вывод списка сотрудников у администратора 2
     for user in admin2.users_list:
