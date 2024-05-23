@@ -60,9 +60,13 @@ if __name__ == "__main__":
     user2 = User(102, "User 002")
     user3 = User(103, "User 003")
     user4 = User(104, "User 004")
-    user5 = User(103, "User 005")
+    user5 = User(105, "User 005")
+    user6 = User(106, "User 006")
+    user7 = User(107, "User 007")
+    user8 = User(108, "User 008")
+    user9 = User(109, "User 009")
 
-    # Администратор добавляет сотрудников
+    # Администратор 1 добавляет сотрудников
     print(admin1.add_user(user1))
     print(admin1.add_user(user2))
     print(admin1.add_user(user3))
@@ -70,12 +74,22 @@ if __name__ == "__main__":
     # Пытаемся добавить администратора как обычного сотрудника
     print(admin1.add_user(admin1))  # Должно вернуть ошибку
 
-    # Администратор удаляет сотрудника
+    # Администратор 1 удаляет сотрудника
     print(admin1.remove_user(102))
 
-    # Администратор редактирует сотрудника
+    # Администратор 1 редактирует сотрудника
     print(admin1.edit_user(103, "User 003 Renamed"))
 
-    # Вывод списка сотрудников у администратора
+    # Вывод списка сотрудников у администратора 1
     for user in admin1.users_list:
+        print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
+
+
+
+    # Вывод списка сотрудников у администратора 2
+    for user in admin2.users_list:
+        print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
+
+    # Вывод списка сотрудников у администратора 1
+    for user in admin3.users_list:
         print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
