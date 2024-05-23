@@ -65,9 +65,10 @@ if __name__ == "__main__":
     # Администратор добавляет сотрудников
     print(admin1.add_user(user1))
     print(admin1.add_user(user2))
+    print(admin1.add_user(user3))
 
     # Пытаемся добавить администратора как обычного сотрудника
-    print(admin1.add_user(admin2))  # Должно вернуть ошибку
+    print(admin1.add_user(admin1))  # Должно вернуть ошибку
 
     # Администратор удаляет сотрудника
     print(admin1.remove_user(102))
