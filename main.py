@@ -110,7 +110,7 @@ print(admin2.edit_user(106, "User 006 Renamed"))
 for user in admin2.users_list:
     print(f"User ID: {user.user_id}, Name: {user.name}, Access Level: {user.access_level}")
 
-# Администратор 2 добавляет сотрудников
+# Администратор 3 добавляет сотрудников
 print(admin3.add_user(users[6]))
 print(admin3.add_user(users[7]))
 print(admin3.add_user(users[8]))
@@ -118,10 +118,10 @@ print(admin3.add_user(users[8]))
 # Пытаемся добавить администратора как обычного сотрудника
 print(admin3.add_user(admin3))  # Должно вернуть ошибку
 
-# Администратор 2 удаляет сотрудника
+# Администратор 3 удаляет сотрудника
 print(admin3.remove_user(108))
 
-# Администратор 2 редактирует сотрудника
+# Администратор 3 редактирует сотрудника
 print(admin3.edit_user(109, "User 006 Renamed"))
 
 # Вывод списка сотрудников у администратора 3
