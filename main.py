@@ -51,13 +51,16 @@ class Admin(User):
 # Пример использования
 if __name__ == "__main__":
     # Создаем администраторов
-    admin1 = Admin(1, "Admin One")
-    admin2 = Admin(2, "Admin Two")
+    admin1 = Admin(1, "Admin 001")
+    admin2 = Admin(2, "Admin 002")
+    admin3 = Admin(3, "Admin 003")
 
     # Создаем несколько обычных сотрудников
-    user1 = User(101, "User One")
-    user2 = User(102, "User Two")
-    user3 = User(103, "User Three")
+    user1 = User(101, "User 001")
+    user2 = User(102, "User 002")
+    user3 = User(103, "User 003")
+    user4 = User(104, "User 004")
+    user5 = User(103, "User 005")
 
     # Администратор добавляет сотрудников
     print(admin1.add_user(user1))
@@ -70,9 +73,8 @@ if __name__ == "__main__":
     print(admin1.remove_user(102))
 
     # Администратор редактирует сотрудника
-    print(admin1.edit_user(101, "User One Renamed"))
+    print(admin1.edit_user(103, "User 003 Renamed"))
 
     # Вывод списка сотрудников у администратора
     for user in admin1.users_list:
         print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
-        
