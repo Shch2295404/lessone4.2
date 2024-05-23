@@ -102,6 +102,6 @@ if __name__ == "__main__":
     for user in admin2.users_list:
         print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
 
-    # Вывод списка сотрудников у администратора 1
+    # Вывод списка сотрудников у администратора 3
     for user in admin3.users_list:
         print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
