@@ -1,8 +1,8 @@
 class Car(object):
     def __init__(self, make, model, year):
-        self.public_make = "Toyota"
-        self._protected_model = "Camry"
-        self.__private_year = 2022
+        self.public_make = make
+        self._protected_model = model
+        self.__private_year = year
 
     def public_method(self):
         return f"Car make: " + self.public_make + ", model: " + self._protected_model
