@@ -24,16 +24,9 @@ class ElectricCar(Car):
         return details
 
 
-# car = Car("Toyota", "Camry", 2022)
+e_car = ElectricCar("BMW", "Sport 003", 2023, 105)
 
-# print(car.public_method())
-# print(car.protected_method())
-# print(car.private_method())
-
-electric_car = ElectricCar("BMW", "Sport 003", 2023, 105)
-
-print(electric_car.public_make)
-print(electric_car.public_method())
-print(electric_car.protected_method())
-print(electric_car.private_method())
-print(electric_car.get_details())
+print(e_car.public_method())
+print(e_car.protected_method())
+print(e_car.private_method())
+print(e_car.get_details())
