@@ -5,13 +5,13 @@ class Car(object):
         self.__private_year = 2022
 
     def public_method(self):
-        return print(self.public_make)
+        return self.public_make
 
     def protected_method(self):
-        return print(self._protected_model)
+        return self._protected_model
 
     def private_method(self):
-        return print(self.__private_year)
+        return self.__private_year
 
 
 car = Car("Toyota", "Camry", 2022)
