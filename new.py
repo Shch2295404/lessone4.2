@@ -15,17 +15,12 @@ class Car(object):
 
 
 class ElectricCar(Car):
-    def __init__(self, make, model, year):
+    def __init__(self, make, model, year, battery_size=75):
         super().__init__(make, model, year)
+        self.battery_size = battery_size
 
-    def public_method(self):
-        return "Electric " + super().public_method()
-
-    def protected_method(self):
-        return "Electric " + super().protected_method()
-
-    def private_method(self) -> str:
-        return "Electric " + str(super().private_method())
+    def get_details(self):
+        return "Electric battery size: " + str(self.battery_size)
 
 
 car = Car("Toyota", "Camry", 2022)
@@ -34,8 +29,9 @@ print(car.public_method())
 print(car.protected_method())
 print(car.private_method())
 
-electric_car = ElectricCar("Toyota", "ACDC", 2023)
+electric_car = ElectricCar("Toyota", "ACDC", 2023, 105)
 
 print(electric_car.public_method())
 print(electric_car.protected_method())
 print(electric_car.private_method())
+print(electric_car.get_details())
