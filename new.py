@@ -5,7 +5,7 @@ class Car(object):
         self.__private_year = 2022
 
     def public_method(self):
-        return self.public_make
+        return f"Car make: " + self.public_make + ", model: " + self._protected_model
 
     def protected_method(self):
         return self._protected_model
@@ -24,9 +24,7 @@ class ElectricCar(Car):
         return details
 
 
-e_car = ElectricCar("BMW", "Sport 003", 2023, 105)
-
-print(e_car.public_method())
-print(e_car.protected_method())
-print(e_car.private_method())
-print(e_car.get_details())
+my_car = Car("Toyota", "Camry", 2022)
+print(my_car.public_method())
+electric_car = ElectricCar("BMW", "Sport 003", 2023, 105)
+print(electric_car.get_details())
