@@ -20,17 +20,19 @@ class ElectricCar(Car):
         self.battery_size = battery_size
 
     def get_details(self):
-        return "Electric battery size: " + str(self.battery_size)
+        details = f"Electric car " + self.public_make + ", model " + self._protected_model + ", year: " + str(self.private_method()) + ", battery size: " + str(self.battery_size)
+        return details
 
 
-car = Car("Toyota", "Camry", 2022)
+# car = Car("Toyota", "Camry", 2022)
 
-print(car.public_method())
-print(car.protected_method())
-print(car.private_method())
+# print(car.public_method())
+# print(car.protected_method())
+# print(car.private_method())
 
-electric_car = ElectricCar("Toyota", "ACDC", 2023, 105)
+electric_car = ElectricCar("BMW", "Sport 003", 2023, 105)
 
+print(electric_car.public_make)
 print(electric_car.public_method())
 print(electric_car.protected_method())
 print(electric_car.private_method())
