@@ -79,7 +79,7 @@ class Veterinarian:
 
     def heal_animal(self, animal):
         print(f"{self.name} лечит {animal.name}.")
-
+        animal.sleep()
 
 # Класс Zoo, использующий композицию для хранения животных и сотрудников
 class Zoo:
@@ -132,7 +132,11 @@ if __name__ == "__main__":
 
     # Использование сотрудников
     keeper.feed_animal(tiger)
+    tiger.info()
     vet.heal_animal(snake)
+    snake.info()
+    parrot.gogo()
+    parrot.info()
 
     # Сохранение и загрузка зоопарка
     zoo.save_to_file("zoo.pkl")
