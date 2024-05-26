@@ -1,17 +1,17 @@
-class Teacher():
-    def teach(self):
-        print("Преподаватель учит")
+class Dog:
+    def speak(self):
+        return "Гав!"
 
-class School( ):
-    def __init__(self, new_techer):
-        self.teacher = new_techer
+class Cat:
+    def speak(self):
+        return "Мяу!"
 
-    def start_lessone(self):
-        self.teacher.teach()
+def animal_speak(animal):
+    return animal.speak()
 
 
-my_teacher = Teacher()
-my_school = School(my_teacher)
-print(my_teacher)
-print(my_school)
-my_school.start_lessone()
+dog = Dog()
+cat = Cat()
+
+print(animal_speak(dog))
+print(animal_speak(cat))
