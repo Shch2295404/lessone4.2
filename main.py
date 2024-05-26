@@ -1,68 +1,21 @@
-class Shape():
-    def area(self):
-        return 0
+class Author():
+    def __init__(self, name, nationality):
+        self.name = name
+        self.nationality = nationality
 
 
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
+class Book():
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
 
-    def area(self):
-        return 3.14 * self.radius ** 2
-
-
-class Rectangle(Shape):
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
-
-    def area(self):
-        return self.length * self.width
+    def get_info_book(self):
+        print(self.title, self.author.name, self.author.nationality)
 
 
-class Square(Shape):
-    def __init__(self, length):
-        self.length = length
+author = Author('George R. R. Martin', 'American')
+book = Book('Игра Престолов', author)
+book.get_info_book()
 
-    def area(self):
-        return self.length ** 2
-
-
-class Trapezoidal(Shape):
-    def __init__(self, length, width, height):
-        self.length = length
-        self.width = width
-        self.height = height
-
-    def area(self):
-        return (self.length + self.width)/2 * self.height
-
-
-class Ellipse(Shape):
-    def __init__(self, radius_1, radius_2):
-        self.radius_1 = radius_1
-        self.radius_2 = radius_2
-
-    def area(self):
-        return 3.14 * self.radius_1 * self.radius_2
-
-
-def print_area(shape):
-    print(f"Площадь фигуры: {shape.area()}")
-
-
-c = Circle(3)
-print_area(c)
-r = Rectangle(4, 5)
-print_area(r)
-s = Square(4)
-print_area(s)
-t = Trapezoidal(4, 5, 7)
-print_area(t)
-e = Ellipse(4, 3)
-print_area(e)
-print(f"Площадь круга: {c.area()}")
-print(f"Площадь прямоугольника: {r.area()}")
-print(f"Площадь квадрата: {s.area()}")
-print(f"Площадь трапеции: {t.area()}")
-print(f"Площадь эллипса: {e.area()}")
+print(author.name, author.nationality, book.title)
+# George R. R. Martin American Игра Престолов
