@@ -1,17 +1,20 @@
-class Dog:
-    def speak(self):
-        return "Гав!"
+class Animal():
+    def make_sound(self):
+        pass
 
-class Cat:
-    def speak(self):
-        return "Мяу!"
+class Dog(Animal):
+    def make_sound(self):
+        print("Гав!")
 
-def animal_speak(animal):
-    return animal.speak()
+class Cat(Animal):
+    def make_sound(self):
+        print("Мяу!")
+
+class Cow(Animal):
+    def make_sound(self):
+        print("Муу!")
 
 
-dog = Dog()
-cat = Cat()
-
-print(animal_speak(dog))
-print(animal_speak(cat))
+ animals = [Dog(), Cat(), Cow()]
+for animal in animals:
+    animal.make_sound()
