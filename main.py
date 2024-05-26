@@ -8,13 +8,13 @@ class Dog(Animal):
 
 class Cat(Animal):
     def make_sound(self):
-        print("Мяу!")
+        print("Мяу")
 
 class Cow(Animal):
     def make_sound(self):
-        print("Муу!")
+        print("Мууу")
 
 
- animals = [Dog(), Cat(), Cow()]
+animals = [Dog(), Cat(), Cow()]
 for animal in animals:
     animal.make_sound()
