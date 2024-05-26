@@ -9,13 +9,13 @@ class Animal:
         self.weight = weight
 
     def make_sound(self):
-        raise NotImplementedError("This method should be overridden in subclasses")
+        raise NotImplementedError("Этот метод должен быть переопределен в подклассах")
 
     def eat(self):
-        print(f"{self.name} is eating.")
+        print(f"{self.name} ест.")
 
     def sleep(self):
-        print(f"{self.name} is sleeping.")
+        print(f"{self.name} спит.")
 
 
 # Подклассы Bird, Mammal, Reptile
@@ -25,7 +25,7 @@ class Bird(Animal):
         self.needs_water = needs_water
 
     def make_sound(self):
-        print(f"{self.name} says: Chirp Chirp!")
+        print(f"{self.name} кричит: Чирп-чирп!")
 
 
 class Mammal(Animal):
@@ -34,7 +34,7 @@ class Mammal(Animal):
         self.needs_water = needs_water
 
     def make_sound(self):
-        print(f"{self.name} says: Roar!")
+        print(f"{self.name} рычит: Ррррр!")
 
 
 class Reptile(Animal):
@@ -43,7 +43,7 @@ class Reptile(Animal):
         self.needs_water = needs_water
 
     def make_sound(self):
-        print(f"{self.name} says: Hiss!")
+        print(f"{self.name} шипит: Чавк!")
 
 
 # Полиморфизм: функция, принимающая список животных и вызывающая метод make_sound
@@ -58,7 +58,7 @@ class ZooKeeper:
         self.name = name
 
     def feed_animal(self, animal):
-        print(f"{self.name} is feeding {animal.name}.")
+        print(f"{self.name} кормит {animal.name}.")
         animal.eat()
 
 
@@ -67,7 +67,7 @@ class Veterinarian:
         self.name = name
 
     def heal_animal(self, animal):
-        print(f"{self.name} is healing {animal.name}.")
+        print(f"{self.name} лечит {animal.name}.")
 
 
 # Класс Zoo, использующий композицию для хранения животных и сотрудников
@@ -78,40 +78,40 @@ class Zoo:
 
     def add_animal(self, animal):
         self.animals.append(animal)
-        print(f"Added {animal.name} to the zoo.")
+        print(f"Добавлено {animal.name} в зоопарк.")
 
     def add_staff(self, staff_member):
         self.staff.append(staff_member)
-        print(f"Added {staff_member.name} to the zoo staff.")
+        print(f"Пополнил {staff_member.name} штат сотрудников зоопарка.")
 
     def save_to_file(self, filename):
         with open(filename, 'wb') as file:
             pickle.dump(self, file)
-        print(f"Zoo saved to {filename}.")
+        print(f"Зоопарк сохранен в {filename}.")
 
     @staticmethod
     def load_from_file(filename):
         with open(filename, 'rb') as file:
             zoo = pickle.load(file)
-        print(f"Zoo loaded from {filename}.")
+        print(f"Зоопарк загружен из {filename}.")
         return zoo
 
 
 # Пример использования
 if __name__ == "__main__":
     # Создание животных
-    parrot = Bird("Parrot", 2, 0.5, True)
-    lion = Mammal("Lion", 5, 190, False)
-    snake = Reptile("Snake", 3, 5, True)
+    parrot = Bird("Попугай", 2, 0.5, True)
+    tiger = Mammal("Тигр", 5, 190, False)
+    snake = Reptile("Удав", 3, 5, True)
 
     # Создание сотрудников
-    keeper = ZooKeeper("Alice")
-    vet = Veterinarian("Bob")
+    keeper = ZooKeeper("Алёна")
+    vet = Veterinarian("Иван")
 
     # Создание зоопарка и добавление животных и сотрудников
     zoo = Zoo()
     zoo.add_animal(parrot)
-    zoo.add_animal(lion)
+    zoo.add_animal(tiger)
     zoo.add_animal(snake)
     zoo.add_staff(keeper)
     zoo.add_staff(vet)
@@ -120,7 +120,7 @@ if __name__ == "__main__":
     animal_sound(zoo.animals)
 
     # Использование сотрудников
-    keeper.feed_animal(lion)
+    keeper.feed_animal(tiger)
     vet.heal_animal(snake)
 
     # Сохранение и загрузка зоопарка
