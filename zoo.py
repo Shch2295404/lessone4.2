@@ -17,6 +17,17 @@ class Animal:
     def sleep(self):
         print(f"{self.name} спит.")
 
+    def drink(self):
+        print(f"{self.name} пьет.")
+
+    def gogo(self):
+        print(f"{self.name} бегает.")
+
+    def info(self):
+        print(f"Имя: {self.name}")
+        print(f"Возраст: {self.age}")
+        print(f"Вес: {self.weight}")
+
 
 # Подклассы Bird, Mammal, Reptile
 class Bird(Animal):
@@ -25,7 +36,7 @@ class Bird(Animal):
         self.needs_water = needs_water
 
     def make_sound(self):
-        print(f"{self.name} кричит: Чирп-чирп!")
+        print(f"{self.name} кричит: Чирк-чирк!")
 
 
 class Mammal(Animal):
@@ -43,7 +54,7 @@ class Reptile(Animal):
         self.needs_water = needs_water
 
     def make_sound(self):
-        print(f"{self.name} шипит: Чавк!")
+        print(f"{self.name} шипит: Шшшш!")
 
 
 # Полиморфизм: функция, принимающая список животных и вызывающая метод make_sound
