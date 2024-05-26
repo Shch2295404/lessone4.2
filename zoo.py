@@ -81,6 +81,7 @@ class Veterinarian:
         print(f"{self.name} лечит {animal.name}.")
         animal.sleep()
 
+
 # Класс Zoo, использующий композицию для хранения животных и сотрудников
 class Zoo:
     def __init__(self):
@@ -136,7 +137,7 @@ if __name__ == "__main__":
     vet.heal_animal(snake)
     snake.info()
     parrot.gogo()
-    parrot.info()
+    Animal.info(parrot)
 
     # Сохранение и загрузка зоопарка
     zoo.save_to_file("zoo.pkl")
@@ -148,6 +149,7 @@ if __name__ == "__main__":
     loaded_zoo = Zoo.load_from_file("zoo.json")
     animal_sound(loaded_zoo.animals)
 
+    # Сохранение и загрузка зоопарка в формате TXT
     zoo.save_to_file("zoo.txt")
     loaded_zoo = Zoo.load_from_file("zoo.txt")
     animal_sound(loaded_zoo.animals)
