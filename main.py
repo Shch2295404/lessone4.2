@@ -1,22 +1,17 @@
-class Engine:
-    def start(self):
-        print('Starting the engine...')
+class Teacher():
+    def teach(self):
+        print("Преподаватель учит")
 
-    def stop(self):
-        print('Stopping the engine...')
+class School():
+    def __init__(self, new_techer):
+        self.teacher = new_techer
 
-
-class Car:
-    def __init__(self):
-        self.engine = Engine()
-
-    def start(self):
-        self.engine.start()
-
-    def stop(self):
-        self.engine.stop()
+    def start_lessone(self):
+        self.teacher.teach()
 
 
-my_Car = Car()
-my_Car.start()
-my_Car.stop()
+my_teacher = Teacher()
+my_school = School(my_teacher)
+print(my_teacher)
+print(my_school)
+my_school.start_lessone()
