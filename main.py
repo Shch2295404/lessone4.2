@@ -2,7 +2,7 @@ class Teacher():
     def teach(self):
         print("Преподаватель учит")
 
-class School():
+class School( ):
     def __init__(self, new_techer):
         self.teacher = new_techer
 
