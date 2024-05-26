@@ -1,3 +1,4 @@
+# C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main4.py
 # Этот код на языке Python определяет класс Test с четырьмя методами:
 # # public_func(): Это публичный метод, который печатает «This is public function».
 # _protected_func():

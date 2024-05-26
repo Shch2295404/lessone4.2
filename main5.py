@@ -1,3 +1,4 @@
+# C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main5.py
 # Этот код на языке Python определяет два класса: Engine и Car.
 # Класс Engine имеет два метода: start() и stop().
 # Метод start() выводит на консоль сообщение 'Starting the engine...',
