@@ -1,19 +1,22 @@
-class Test(object):
-    def public_func(self):
-        print("This is public function")
+class Engine:
+    def start(self):
+        print('Starting the engine...')
 
-    def _protected_func(self):
-        print("This is protected function")
-
-    def __private_func(self):
-        print("This is private function")
-
-    def test_private(self):
-        self.__private_func()
+    def stop(self):
+        print('Stopping the engine...')
 
 
-test=Test()
+class Car:
+    def __init__(self):
+        self.engine = Engine()
 
-test.public_func()
+    def start(self):
+        self.engine.start()
 
-test.test_private()
+    def stop(self):
+        self.engine.stop()
+
+
+my_Car = Car()
+my_Car.start()
+
