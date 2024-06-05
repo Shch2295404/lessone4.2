@@ -15,17 +15,254 @@ C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main0.py
  где пользователь может добавлять, удалять и редактировать других пользователей.
 
 C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main1.py
-Этот код на языке Python определяет два класса: User и Admin.
-Класс User имеет два метода: user_id и name.
-Метод user_id возвращает атрибут __user_id, а name возвращает атрибут __name.
-Класс Admin имеет метод add_user, remove_user и edit_user.
-Метод add_user добавляет пользователя user в список users_list.
-Метод remove_user удаляет пользователя user из списка users_list.
-Метод edit_user изменяет имя пользователя user в списке users_list.
-Код создает экземпляр класса Admin с именем admin и вызывает его метод edit_user.
-В результате в консоли будет выведено сообщение 'User John edited successfully.'
-В итоге этот код демонстрирует объектно-ориентированное программирование (ООП) в Python,
- где пользователь может добавлять, удалять и редактировать других пользователей.
+Задача оптимизировать программу
+ ```python
+
+class User:
+    def __init__(self, user_id, name):
+        self.__user_id = user_id
+        self.__name = name
+        self.__access_level = 'user'
+
+    def get_user_id(self):
+        return self.__user_id
+
+    def get_name(self):
+        return self.__name
+
+    def get_access_level(self):
+        return self.__access_level
+
+    def set_name(self, name):
+        self.__name = name
+
+
+class Admin(User):
+    def __init__(self, user_id, name):
+        super().__init__(user_id, name)
+        self.__access_level = 'admin'
+        self.users_list = []
+
+    def get_access_level(self):
+        return self.__access_level
+
+    def add_user(self, user):
+        if isinstance(user, User) and user.get_access_level() == 'user':
+            self.users_list.append(user)
+            return f"User {user.get_name()} added successfully."
+        else:
+            return "Failed to add user. Only 'user' level employees can be added."
+
+    def remove_user(self, user_id):
+        for user in self.users_list:
+            if user.get_user_id() == user_id:
+                self.users_list.remove(user)
+                return f"User with ID {user_id} removed successfully."
+        return f"User with ID {user_id} not found."
+
+    def edit_user(self, user_id, new_name):
+        for user in self.users_list:
+            if user.get_user_id() == user_id:
+                user.set_name(new_name)
+                return f"User with ID {user_id} renamed to {new_name}."
+        return f"User with ID {user_id} not found."
+
+
+# Пример использования
+if __name__ == "__main__":
+    # Создаем администраторов
+    admin1 = Admin(1, "Admin 001")
+    admin2 = Admin(2, "Admin 002")
+    admin3 = Admin(3, "Admin 003")
+
+    # Создаем несколько обычных сотрудников
+    user1 = User(101, "User 001")
+    user2 = User(102, "User 002")
+    user3 = User(103, "User 003")
+    user4 = User(104, "User 004")
+    user5 = User(105, "User 005")
+    user6 = User(106, "User 006")
+    user7 = User(107, "User 007")
+    user8 = User(108, "User 008")
+    user9 = User(109, "User 009")
+
+    # Администратор 1 добавляет сотрудников
+    print(admin1.add_user(user1))
+    print(admin1.add_user(user2))
+    print(admin1.add_user(user3))
+
+    # Пытаемся добавить администратора как обычного сотрудника
+    print(admin1.add_user(admin1))  # Должно вернуть ошибку
+
+    # Администратор 1 удаляет сотрудника
+    print(admin1.remove_user(102))
+
+    # Администратор 1 редактирует сотрудника
+    print(admin1.edit_user(103, "User 003 Renamed"))
+
+    # Вывод списка сотрудников у администратора 1
+    for user in admin1.users_list:
+        print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
+
+    # Администратор 2 добавляет сотрудников
+    print(admin2.add_user(user4))
+    print(admin2.add_user(user5))
+    print(admin2.add_user(user6))
+
+    # Пытаемся добавить администратора как обычного сотрудника
+    print(admin2.add_user(admin2))  # Должно вернуть ошибку
+
+    # Администратор 2 удаляет сотрудника
+    print(admin2.remove_user(105))
+
+    # Администратор 2 редактирует сотрудника
+    print(admin2.edit_user(106, "User 006 Renamed"))
+
+    # Вывод списка сотрудников у администратора 2
+    for user in admin2.users_list:
+        print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
+
+    # Вывод списка сотрудников у администратора 3
+    for user in admin3.users_list:
+        print(f"User ID: {user.get_user_id()}, Name: {user.get_name()}, Access Level: {user.get_access_level()}")
+ ```
+
+Результат:
+
+1. Удалены дублирующиеся методы.
+2. Упрощена логика поиска и удаления пользователей.
+3. Использованы свойства (property) для доступа к приватным атрибутам.
+
+```python
+class User:
+    def __init__(self, user_id, name):
+        self.__user_id = user_id
+        self.__name = name
+        self.__access_level = 'user'
+
+    @property
+    def user_id(self):
+        return self.__user_id
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, name):
+        self.__name = name
+
+    @property
+    def access_level(self):
+        return self.__access_level
+
+
+class Admin(User):
+    def __init__(self, user_id, name):
+        super().__init__(user_id, name)
+        self.__access_level = 'admin'
+        self.users_list = []
+
+    @property
+    def access_level(self):
+        return self.__access_level
+
+    def add_user(self, user):
+        if isinstance(user, User) and user.access_level == 'user':
+            self.users_list.append(user)
+            return f"User {user.name} added successfully."
+        return "Не удалось добавить 'user'. Добавлять можно только сотрудников уровня «пользователь»."
+
+    def remove_user(self, user_id):
+        user = next((u for u in self.users_list if u.user_id == user_id), None)
+        if user:
+            self.users_list.remove(user)
+            return f"Пользователь с идентификатором {user_id} успешно удален."
+        return f"Пользователь с идентификатором {user_id} не найден."
+
+    def edit_user(self, user_id, new_name):
+        user = next((u for u in self.users_list if u.user_id == user_id), None)
+        if user:
+            user.name = new_name
+            return f"Пользователь с идентификатором {user_id} переименован в {new_name}."
+        return f"Пользователь с идентификатором {user_id} не найден."
+
+
+# Пример использования
+if __name__ == "__main__":
+    # Создаем администраторов
+    admin1 = Admin(1, "Admin 001")
+    admin2 = Admin(2, "Admin 002")
+    admin3 = Admin(3, "Admin 003")
+
+    # Создаем несколько обычных сотрудников
+    users = [
+        User(101, "User 001"),
+        User(102, "User 002"),
+        User(103, "User 003"),
+        User(104, "User 004"),
+        User(105, "User 005"),
+        User(106, "User 006"),
+        User(107, "User 007"),
+        User(108, "User 008"),
+        User(109, "User 009"),
+    ]
+
+    # Администратор 1 добавляет сотрудников
+    print(admin1.add_user(users[0]))
+    print(admin1.add_user(users[1]))
+    print(admin1.add_user(users[2]))
+
+    # Пытаемся добавить администратора как обычного сотрудника
+print(admin1.add_user(admin1))  # Должно вернуть ошибку
+
+    # Администратор 1 удаляет сотрудника
+    print(admin1.remove_user(102))
+
+    # Администратор 1 редактирует сотрудника
+    print(admin1.edit_user(103, "User 003 Renamed"))
+
+    # Вывод списка сотрудников у администратора 1
+    for user in admin1.users_list:
+        print(f"User ID: {user.user_id}, Name: {user.name}, Access Level: {user.access_level}")
+
+    # Администратор 2 добавляет сотрудников
+    print(admin2.add_user(users[3]))
+    print(admin2.add_user(users[4]))
+    print(admin2.add_user(users[5]))
+
+    # Пытаемся добавить администратора как обычного сотрудника
+    print(admin2.add_user(admin2))  # Должно вернуть ошибку
+
+    # Администратор 2 удаляет сотрудника
+    print(admin2.remove_user(105))
+
+    # Администратор 2 редактирует сотрудника
+    print(admin2.edit_user(106, "User 006 Renamed"))
+
+    # Вывод списка сотрудников у администратора 2
+    for user in admin2.users_list:
+        print(f"User ID: {user.user_id}, Name: {user.name}, Access Level: {user.access_level}")
+
+    # Вывод списка сотрудников у администратора 3
+    for user in admin3.users_list:
+        print(f"User ID: {user.user_id}, Name: {user.name}, Access Level: {user.access_level}")
+```
+
+### Объяснение изменений:
+1. **Использование свойств (property)**:
+    - Упрощает доступ к приватным атрибутам класса.
+    - Избавляет от необходимости явно писать методы `get_` и `set_`.
+  
+2. **Использование генераторов**:
+    - В методах `remove_user` и `edit_user` используется генератор для поиска пользователя, 
+что делает код более компактным и читаемым.
+  
+3. **Упрощение логики**:
+    - Удалены дублирующиеся методы и улучшены проверки.
+
+Эти изменения делают код более понятным, эффективным и легким для поддержки.
+
 
 C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main3.py
 Этот код Python определяет класс Test, который имеет три атрибута: public, _protected и __private.
@@ -218,6 +455,5 @@ print(account.get_balance())  # 150
 # print(account.__balance)  # AttributeError: 'BankAccount' object has no attribute '__balance'
 print(account._BankAccount__balance)  # 150 (доступ через манглированное имя)
 ```
-
 Следуя этим критериям, вы сможете эффективно использовать манглинг имен в Python 
  для управления доступом к атрибутам и предотвращения конфликтов имен.
