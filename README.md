@@ -265,7 +265,7 @@ print(admin1.add_user(admin1))  # Должно вернуть ошибку
 Эти изменения делают код более понятным, эффективным и легким для поддержки.
 
 
-C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main3.py
+C:/Users/Щетинин Д Б/Documents/GitHub/lessone4.2/main2.py
 Этот код Python определяет класс Test, который имеет три атрибута: public, _protected и __private.
 Метод __init__ инициализирует эти атрибуты.
 У класса также есть два метода: get_private и set_private, которые позволяют получать
